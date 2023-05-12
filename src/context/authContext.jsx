@@ -1,6 +1,6 @@
 import { useContext, useState, createContext } from "react";
 
-const authContext = createContext({
+const AuthContext = createContext({
   login: () => {},
   logout: () => {},
   user: null,
@@ -8,16 +8,40 @@ const authContext = createContext({
 });
 
 const RICK_AND_MORTY_LOGIN = "RICK_AND_MORTY_LOGIN";
-export default function authContextProvider({ children }) {
+export default function AuthContextProvider({ children }) {
     const [user, setUser] = useState(() =>
       JSON.parse(localStorage.getItem(RICK_AND_MORTY_LOGIN)) ?? null
     );
-
+    const [errorMessage, setErrorMessage] = useState(null)
     function login(user) {
         if (
             user.name === "estela" &&
             user.email === "estela@gmail.com" &&
             user.password === "12345"
-        )
+        ) {
+            localStorage.setItem(RICK_AND_MORTY_LOGIN, JSON.stringify(user))
+            setUser(user);
+            setErrorMessage(null)
+        }
+        setErrorMessage("Las credenciales no son correctas")
     }
+
+    function logout() {
+        localStorage.removeItem(RICK_AND_MORTY_LOGIN);
+        setUser(null)
+    }
+
+    const value = {
+        user,
+        login,
+        logout,
+        errorMessage
+    }
+
+    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
+
+export function useAuthContext() {
+    return useContext(AuthContext)
+}
+

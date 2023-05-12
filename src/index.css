@@ -118,16 +118,19 @@ main{
   align-items: center;
 }
 .home-img{
-  width: 45rem;
+  width: 42rem;
+  margin-left: 300px;
+}
+.centrado{
+  text-align: center;
+  justify-content: center;
 }
 .card-container{
 display: flex;
 width: 100%;
 justify-content: center;
 }
-.card-image{
 
-}
 .card-info{
 padding-left: 2rem;
 width: 40rem;
