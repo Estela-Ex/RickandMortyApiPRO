@@ -22,8 +22,8 @@ export default function Characters() {
   }
 
   return (
-    <div className="container">
       <>
+    <div className="container">
         {resultFetch?.map((item) => {
           return (
             <div className="sin-estilo li-flex" key={item.id}>
@@ -35,6 +35,7 @@ export default function Characters() {
             </div>
           );
         })}
+          </div>
         <div className="container ">
           <button
             className="miboton"
@@ -44,6 +45,7 @@ export default function Characters() {
           >
             Previus
           </button>
+          <h3 className="color">Página {page} de 42</h3>
           <button
             className="miboton"
             onClick={() => {
@@ -53,9 +55,7 @@ export default function Characters() {
             Next
           </button>
         </div>
-        <h3 className="color">Página {page} de 42</h3>
       </>
-    </div>
   );
 }
 
