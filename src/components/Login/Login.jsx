@@ -7,6 +7,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [clicked, setClicked] = useState(false)
   const { login, errorMessage } = useAuthContext();
   function handleInpust(e) {
     setUser((currentUser) => ({
@@ -57,10 +58,10 @@ export default function Login() {
         <span>
           Recordar contraseña <Checkbox defaultChecked />
         </span>
-        <Button onClick={() => login(user)} variant="contained" sx={{ mb: 2 }}>
+        <Button onClick={() => { setClicked(true); login(user);}} variant="contained" sx={{ mb: 2 }}>
           Login
         </Button>
-        {errorMessage && (
+        {errorMessage && clicked &&(
           <Alert variant="filled" severity="error">
             {errorMessage}
           </Alert>
