@@ -23,7 +23,7 @@ export default function AuthContextProvider({ children }) {
             setUser(user);
             setErrorMessage(null)
         }
-        setErrorMessage("Las credenciales no son correctas")
+        setErrorMessage("Los datos introducidos no son correctos")
     }
 
     function logout() {
@@ -35,7 +35,7 @@ export default function AuthContextProvider({ children }) {
         user,
         login,
         logout,
-        errorMessage
+        errorMessage,
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

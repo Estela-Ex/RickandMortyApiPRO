@@ -20,21 +20,30 @@ import { AppBar } from "../ui/AppBar";
 import { Drawer } from "../ui/Drawer";
 import { drawerMenu } from "../../const/drawerMenu";
 import Link from "../Link";
+import { HOME } from "../../const/routes";
+import BlockIcon from "@mui/icons-material/Block";
+import { useAuthContext } from "../../context/AuthContext";
+
 const drawerWidth = 240;
 
 export default function MiniDrawer() {
+  const {logout} = useAuthContext()
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const location = useLocation();
-
   function handleDrawer() {
     setOpen((currentState) => !currentState);
   }
-
+ 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar color="primary" position="fixed" open={open} drawerWidth={drawerWidth}>
+      <AppBar
+        color="primary"
+        position="fixed"
+        open={open}
+        drawerWidth={drawerWidth}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -106,6 +115,40 @@ export default function MiniDrawer() {
               </ListItem>
             );
           })}
+          <ListItem
+            disablePadding
+            sx={{
+              display: "block",
+              backgroundColor:
+                location.pathname === HOME ? theme.palette.primary.light : null,
+            }}
+            onClick={open && handleDrawer && logout}
+          >
+            {/* <Link to={HOME}> */}
+            <ListItemButton
+              onClick={logout}
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <BlockIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary={"Close Session"}
+                sx={{ opacity: open ? 1 : 0 , color:"gray" }}
+              />
+            </ListItemButton>
+            {/* </Link> */}
+          </ListItem>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
