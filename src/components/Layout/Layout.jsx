@@ -21,8 +21,8 @@ import { Drawer } from "../ui/Drawer";
 import { drawerMenu } from "../../const/drawerMenu";
 import Link from "../Link";
 import { HOME } from "../../const/routes";
-import BlockIcon from "@mui/icons-material/Block";
 import { useAuthContext } from "../../context/AuthContext";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
@@ -140,11 +140,11 @@ export default function MiniDrawer() {
                   justifyContent: "center",
                 }}
               >
-                <BlockIcon />
+                <LogoutIcon/>
               </ListItemIcon>
               <ListItemText
                 primary={"Close Session"}
-                sx={{ opacity: open ? 1 : 0 , color:"gray" }}
+                sx={{ opacity: open ? 1 : 0, color: "gray" }}
               />
             </ListItemButton>
             {/* </Link> */}
