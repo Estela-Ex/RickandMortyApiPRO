@@ -2,5 +2,5 @@ const HOME = "/";
 const CHARACTERS = "characters";
 const EPISODES = "episodes";
 const LOCATIONS = "locations";
-
-export { HOME, CHARACTERS, LOCATIONS, EPISODES };
+const UNAUTHORIZE = "unauthorize"
+export { HOME, CHARACTERS, LOCATIONS, EPISODES, UNAUTHORIZE };

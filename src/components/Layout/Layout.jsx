@@ -124,7 +124,6 @@ export default function MiniDrawer() {
             }}
             onClick={open && handleDrawer && logout}
           >
-            {/* <Link to={HOME}> */}
             <ListItemButton
               onClick={logout}
               sx={{

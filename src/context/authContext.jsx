@@ -19,8 +19,8 @@ export default function AuthContextProvider({ children }) {
             user.email === "estela@gmail.com" &&
             user.password === "12345"
         ) {
-            localStorage.setItem(RICK_AND_MORTY_LOGIN, JSON.stringify(user))
-            setUser(user);
+            localStorage.setItem(RICK_AND_MORTY_LOGIN, JSON.stringify({...user,role:2}))
+            setUser({...user,role:2});
             setErrorMessage(null)
         }
         setErrorMessage("Los datos introducidos no son correctos")
