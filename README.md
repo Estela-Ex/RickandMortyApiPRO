@@ -6,4 +6,4 @@ Mejora de la versión anterior de la Api de Rick and Morty
 ### email: estela@gmail.com
 ### password: 12345
 
-# Este es un perfil de usuario no de administrados y es por esto que hay accesos restringidos
+#### Este es un perfil de usuario no de administrados y es por esto que hay accesos restringidos
