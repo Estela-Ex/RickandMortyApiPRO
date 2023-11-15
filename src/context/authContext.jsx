@@ -15,12 +15,12 @@ export default function AuthContextProvider({ children }) {
     const [errorMessage, setErrorMessage] = useState(null)
     function login(user) {
         if (
-            user.name === "estela" &&
-            user.email === "estela@gmail.com" &&
+            user.name === "prueba" &&
+            user.email === "prueba@gmail.com" &&
             user.password === "12345"
         ) {
-            localStorage.setItem(RICK_AND_MORTY_LOGIN, JSON.stringify({...user,role:2}))
-            setUser({...user,role:2});
+            localStorage.setItem(RICK_AND_MORTY_LOGIN, JSON.stringify({...user,role:0}))
+            setUser({...user,role:0});
             setErrorMessage(null)
         }
         setErrorMessage("Los datos introducidos no son correctos")
