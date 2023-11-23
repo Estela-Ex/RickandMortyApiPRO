@@ -1,4 +1,6 @@
 # RickandMortyApiPRO
-Mejora de la versión anterior de la Api de Rick and Morty
-### Te muestro la página completa sin el login para que puedas acceder sin tener que registrarte
 
+
+## Para acceder bien puedes hacerlo a través de mi Portfolio (donde te lleva a la demo) o te lo puedes clonar:
+### npm install
+### npm rud dev
